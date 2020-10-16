@@ -1,4 +1,4 @@
-# graphql-ninja - getting familiar with React-Apollo-GraphQL-MongoDB
+# graphql-ninja - React-Apollo-GraphQL-MongoDB
 
 ![](graphql-ninja.gif)
 
@@ -7,24 +7,32 @@ basic graphql app
 app.js
 
 - route graphql schema with express
-  schema.js
+
+schema.js
+
 - used to define object types, their relationships, and root query
-  Object Types
+
+Object Types
+
 - the "models"
 - use parent as arg for nested types
-  Root Query
+
+Root Query
+
 - the landing zone of a graphql query
 - fields - contain the actual query names
 - resolves - contain the code to get data from db
-  Mutation
+
+Mutation
+
 - NonNull: a certain field is required, cant accept null
-  Other
+
+Other
+
 - GraphQLID is ID just for graphql but still string type for JS
-  react-apollo
-- graphql: attaches graphql queries to react components
-- compose: attaching multiple grapql queries tto a react component (removed from react-apollo)
-- import: as compose from "lodash.flowright"
-  apollo-boost
+
+apollo-client
+
 - gql: graphql-javascript parser
   Client-side graphql
 - query variables - making state as input values for client side mutation function
