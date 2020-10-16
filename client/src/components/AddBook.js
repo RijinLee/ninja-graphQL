@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_AUTHORS_QUERY } from "../queries/queries";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_AUTHORS_QUERY, ADD_BOOK_MUTATION } from "../queries/queries";
 
 export default function AddBooks() {
   const { loading, error, data } = useQuery(GET_AUTHORS_QUERY);
+  const [addBookMut, { dataMutation }] = useMutation(ADD_BOOK_MUTATION);
   const [name, setName] = useState("");
   const [genre, setGenre] = useState("");
   const [authorId, setAuthorId] = useState("");
@@ -26,11 +27,18 @@ export default function AddBooks() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(name, genre, authorId);
+    addBookMut({
+      variables: {
+        name: name,
+        genre: genre,
+        authorId: authorId,
+      },
+    });
   };
 
   return (
-    <div onSubmit={handleSubmit}>
-      <form id="add-book">
+    <div>
+      <form id="add-book" onSubmit={handleSubmit}>
         <div className="field">
           <label>Book Name</label>
           <input
