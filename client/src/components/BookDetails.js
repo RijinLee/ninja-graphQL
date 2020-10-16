@@ -13,7 +13,7 @@ export default function BookDetails(props) {
 
   let { book } = data;
   let content = (
-    <>
+    <div id="book-details">
       <h2>Name: {book.name}</h2>
       <p>Genre: {book.genre}</p>
       <p>Author: {book.author.name}</p>
@@ -23,7 +23,7 @@ export default function BookDetails(props) {
           return <li key={book.id}>{book.name}</li>;
         })}
       </ul>
-    </>
+    </div>
   );
   return <div id="book-details">{content}</div>;
 }
