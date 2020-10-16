@@ -2,9 +2,14 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
+// allows requests from other servers
+app.use(cors());
+
+// connect to db
 mongoose.connect(
   "mongodb+srv://rijin:test123@cluster0.a4wj2.mongodb.net/graphql-ninja?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true }
